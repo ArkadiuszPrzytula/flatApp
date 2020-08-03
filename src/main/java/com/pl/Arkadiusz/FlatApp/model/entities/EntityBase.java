@@ -26,26 +26,6 @@ public class EntityBase  {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
     @PreUpdate
     protected void preUpdate() {
         this.updatedAt = LocalDateTime.now();
