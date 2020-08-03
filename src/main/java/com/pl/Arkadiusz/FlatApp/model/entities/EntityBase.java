@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @MappedSuperclass
-public class EntityBase  {
+public class EntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

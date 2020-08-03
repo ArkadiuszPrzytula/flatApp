@@ -10,7 +10,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = {"user"})
-@EqualsAndHashCode(of = "id")
 @Builder
 @Entity
 @Table(name = "bills")

@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor
-@EqualsAndHashCode(of = "id") @ToString (exclude = {"password", "bills","flat",})
+@ToString (exclude = {"password", "bills","flat",})
 @Builder
 @Entity
 @Table(name="users")
