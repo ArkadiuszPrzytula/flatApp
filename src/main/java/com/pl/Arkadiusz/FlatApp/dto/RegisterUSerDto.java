@@ -21,5 +21,5 @@ public class RegisterUSerDto {
     @Email(message = "email is not available")
     private String email;
 
-    private String flatNumber;
+    private int flatNumber;
 }

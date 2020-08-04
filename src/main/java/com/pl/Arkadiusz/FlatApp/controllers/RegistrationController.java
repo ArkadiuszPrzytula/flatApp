@@ -1,7 +1,7 @@
 package com.pl.Arkadiusz.FlatApp.controllers;
 
 import com.pl.Arkadiusz.FlatApp.dto.RegisterUSerDto;
-import com.pl.Arkadiusz.FlatApp.service.implementation.UserService;
+import com.pl.Arkadiusz.FlatApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

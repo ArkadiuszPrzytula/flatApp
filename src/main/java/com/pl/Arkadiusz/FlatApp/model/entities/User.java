@@ -33,8 +33,8 @@ public class User extends EntityBase {
     @OneToMany(mappedBy = "user")
     private List<Bill> bills;
 
-//    @OneToOne(mappedBy = "user")
-//    private Flat flat;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.PERSIST)
+    private Flat flat;
 
     @OneToMany(mappedBy = "user")
     private List<Advert> advert;

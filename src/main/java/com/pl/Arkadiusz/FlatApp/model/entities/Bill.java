@@ -33,7 +33,7 @@ public class Bill extends EntityBase {
     private User user;
 
 
-    enum Category {
+    public enum Category {
         EARMARKED_FUND,
         REPAIR_FUND,
         CO_AND_CW_FIXED_FEE,

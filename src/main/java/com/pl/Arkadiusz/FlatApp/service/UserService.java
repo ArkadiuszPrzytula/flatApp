@@ -1,4 +1,4 @@
-package com.pl.Arkadiusz.FlatApp.service.implementation;
+package com.pl.Arkadiusz.FlatApp.service;
 
 import com.pl.Arkadiusz.FlatApp.dto.LoggedUserDto;
 import com.pl.Arkadiusz.FlatApp.dto.RegisterUSerDto;

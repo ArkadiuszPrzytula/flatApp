@@ -54,7 +54,7 @@
                     <input type="email" required name="email" id="email" class="form-control" placeholder="Enter your e-mail"/>
                 </div>
                 <div><label for="flatNumber">Flat number:</label>
-                    <select name="flatNumber" id="flatNumber">
+                    <select name="flatNumber" id="flatNumber" required>
                         <option value="-" selected> --Choose flat number--</option>
                         <c:forEach items="${flatNumbers}" var="flatNumber">
                             <option value="${flatNumber}">${flatNumber}</option>
