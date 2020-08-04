@@ -1,13 +1,12 @@
 package com.pl.Arkadiusz.FlatApp.model.entities;
 
 import lombok.*;
-import org.springframework.web.bind.annotation.Mapping;
 
 import javax.persistence.*;
 
 @Getter @Setter @NoArgsConstructor
 @AllArgsConstructor
-@ToString @EqualsAndHashCode (of = "id")
+@ToString
 @Builder
 @Entity
 @Table(name = "flats")

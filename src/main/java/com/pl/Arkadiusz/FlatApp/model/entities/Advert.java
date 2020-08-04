@@ -10,7 +10,7 @@ import javax.persistence.*;
     @Setter
     @NoArgsConstructor
     @AllArgsConstructor
-    @ToString(exclude = {"user"}) @EqualsAndHashCode (of = "id")
+    @ToString(exclude = {"user"})
     @Builder
     @Entity
     @Table(name = "adverts")

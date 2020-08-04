@@ -9,7 +9,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@EqualsAndHashCode (of = "id")
 @Builder
 @Entity
 @Table(name = "tasks")

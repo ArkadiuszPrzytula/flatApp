@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Getter @Setter @NoArgsConstructor
 @AllArgsConstructor
-@ToString @EqualsAndHashCode (of = "id")
+@ToString
 @Builder
 @Entity
 @Table(name = "messages")

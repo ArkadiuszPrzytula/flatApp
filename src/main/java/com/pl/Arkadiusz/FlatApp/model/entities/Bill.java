@@ -2,6 +2,7 @@ package com.pl.Arkadiusz.FlatApp.model.entities;
 
 import lombok.*;
 
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -10,7 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = {"user"})
-@EqualsAndHashCode(of = "id")
+
 @Builder
 @Entity
 @Table(name = "bills")
