@@ -38,6 +38,7 @@ public class BillSectionController {
         LoggedUserDto user = userService.getUser(getUsername());
         basicBillsData(model, user);
         addBillsByCategory(model, user, media);
+        return  "bill-page";
     }
 
     private void addBillsByCategory(Model model, LoggedUserDto user, String media) {
