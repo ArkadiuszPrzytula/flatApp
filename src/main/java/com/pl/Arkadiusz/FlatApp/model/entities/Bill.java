@@ -2,6 +2,7 @@ package com.pl.Arkadiusz.FlatApp.model.entities;
 
 import lombok.*;
 
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -10,6 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = {"user"})
+
 @Builder
 @Entity
 @Table(name = "bills")
@@ -27,11 +29,11 @@ public class Bill extends EntityBase {
     @Column(nullable = false)
     private Boolean active = true;
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user;
 
 
-    enum Category {
+    public enum Category {
         EARMARKED_FUND,
         REPAIR_FUND,
         CO_AND_CW_FIXED_FEE,

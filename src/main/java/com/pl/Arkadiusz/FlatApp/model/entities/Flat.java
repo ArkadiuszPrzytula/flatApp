@@ -1,7 +1,6 @@
 package com.pl.Arkadiusz.FlatApp.model.entities;
 
 import lombok.*;
-import org.springframework.web.bind.annotation.Mapping;
 
 import javax.persistence.*;
 
@@ -14,12 +13,16 @@ import javax.persistence.*;
 public class Flat extends EntityBase {
 
     @Column(nullable = false)
-    private String flatNumber;
+    private int flatNumber;
     @Column(nullable = false)
     private Boolean active;
 
     @OneToOne
-    @JoinColumn(name="user_id", nullable = false)
+    @JoinColumn(name="user_id")
     private User user;
 
+    public Flat(int flatNumber, boolean active) {
+        this.flatNumber= flatNumber;
+        this.active = active;
+    }
 }

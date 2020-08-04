@@ -12,6 +12,13 @@
     <title>Welcome</title>
 </head>
 <body>
-<h1>WELCOME</h1>
+<<h1>SIEMANKO LUDZISKA!!!</h1>
+
+OGŁOSZENIE DEWELOPERA: MIESZKANIA DO KUPIENIA.
+&nbsp;
+<a href="/login" >Login</a>
+<a href="/register" >Register</a>
+<a href="/home">Home</a>
+
 </body>
 </html>

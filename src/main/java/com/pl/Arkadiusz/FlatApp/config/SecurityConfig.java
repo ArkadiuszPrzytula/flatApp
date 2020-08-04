@@ -1,25 +1,23 @@
 package com.pl.Arkadiusz.FlatApp.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
-@Component
+@Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    private  final DataSource dataSource;
+    private  final PasswordEncoder passwordEncoder;
 
-    private final DataSource dataSource;
-    private final PasswordEncoder passwordEncoder;
-
-    @Autowired
     public SecurityConfig(DataSource dataSource, PasswordEncoder passwordEncoder) {
         this.dataSource = dataSource;
         this.passwordEncoder = passwordEncoder;
     }
-
+    
 
 
     @Override
@@ -27,26 +25,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder)
-                .usersByUsernameQuery("Select username, password, active FROM users WHERE username = ?")
-                .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM user WHERE username = ?");
+                .usersByUsernameQuery("SELECT username, password, active FROM users WHERE username = ?")
+                .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM users WHERE username = ?");
+    }
+
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/static", "/static/**");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("register").permitAll()
-                .antMatchers("/login").anonymous()
-                .antMatchers("/logout").authenticated()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/home")
-                .and()
-                .logout()
-                .logoutSuccessUrl("/login")
-                .and()
-                .csrf().disable();
+    http.authorizeRequests()
+            .antMatchers("/","/console-h2/**").permitAll()
+            .antMatchers("/register").permitAll()
+            .antMatchers("/login").anonymous()
+            .antMatchers("/logout").authenticated()
+            .and()
+            .formLogin()
+            .loginPage("/login")
+            .defaultSuccessUrl("/home")
+            .and()
+            .logout()
+            .logoutSuccessUrl("/login")
+            .and();
+
+
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 }

@@ -24,7 +24,7 @@ import javax.persistence.*;
         private Boolean active;
 
         @ManyToOne
-        @JoinColumn(name="user_id", nullable = false)
+        @JoinColumn(name="user_id")
         private User user;
 
     }

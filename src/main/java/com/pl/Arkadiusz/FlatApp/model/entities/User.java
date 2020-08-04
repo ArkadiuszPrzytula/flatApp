@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor
-@ToString (exclude = {"password", "bills","flat",})
+@ToString (exclude = {"bills","flat",})
 @Builder
 @Entity
 @Table(name="users")
@@ -25,8 +25,8 @@ public class User extends EntityBase {
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
-    private String flatNumber;
-    @Column(nullable = false)
+    private int flatNumber;
+//    @Column(nullable = false)
     private String role;
     @Column
     Boolean active = false;
@@ -34,7 +34,7 @@ public class User extends EntityBase {
     @OneToMany(mappedBy = "user")
     private List<Bill> bills;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.PERSIST)
     private Flat flat;
 
     @OneToMany(mappedBy = "user")
