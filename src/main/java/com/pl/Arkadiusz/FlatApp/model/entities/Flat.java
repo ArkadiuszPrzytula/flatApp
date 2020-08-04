@@ -17,8 +17,8 @@ public class Flat extends EntityBase {
     @Column(nullable = false)
     private Boolean active;
 
-    @OneToOne
-    @JoinColumn(name="user_id", nullable = false)
-    private User user;
+//    @OneToOne
+//    @JoinColumn(name="user_id")
+//    private User user;
 
 }

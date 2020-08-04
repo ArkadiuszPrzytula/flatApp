@@ -29,7 +29,7 @@ public class Bill extends EntityBase {
     @Column(nullable = false)
     private Boolean active = true;
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user;
 
 

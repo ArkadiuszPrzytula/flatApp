@@ -36,6 +36,7 @@ public class RegistrationController {
 
     @PostMapping
     public String processRegistrationPage(RegisterUSerDto userDTO) {
+        System.out.println(userDTO);
         try {
             userService.saveUser(userDTO);
         } catch (Exception d){

@@ -20,6 +20,6 @@ public class RegisterUSerDto {
     private String lastName;
     @Email(message = "email is not available")
     private String email;
-    @Pattern(regexp="[\\d]{11}")
+
     private String flatNumber;
 }

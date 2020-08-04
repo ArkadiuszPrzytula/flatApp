@@ -7,12 +7,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor
-@ToString (exclude = {"password", "bills","flat",})
+@ToString (exclude = {"bills","flat",})
 @Builder
 @Entity
 @Table(name="users")
 public class User extends EntityBase {
-
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -25,8 +24,8 @@ public class User extends EntityBase {
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
-    private String flatNumber;
-    @Column(nullable = false)
+    private int flatNumber;
+//    @Column(nullable = false)
     private String role;
     @Column
     Boolean active = false;
@@ -34,8 +33,8 @@ public class User extends EntityBase {
     @OneToMany(mappedBy = "user")
     private List<Bill> bills;
 
-    @OneToOne(mappedBy = "user")
-    private Flat flat;
+//    @OneToOne(mappedBy = "user")
+//    private Flat flat;
 
     @OneToMany(mappedBy = "user")
     private List<Advert> advert;
@@ -47,11 +46,5 @@ public class User extends EntityBase {
 //            inverseJoinColumns = {@JoinColumn(name="task_id")}
 //    )
 //    Set<Task> tasks = new HashSet<>();
-
-    @PrePersist
-    protected void setUp(){
-        this.active=true;
-        this.role="USER";
-    }
 
 }

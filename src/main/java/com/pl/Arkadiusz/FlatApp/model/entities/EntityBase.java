@@ -17,7 +17,7 @@ public class EntityBase  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, updatable = false, nullable = false)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "created_at", updatable = false)

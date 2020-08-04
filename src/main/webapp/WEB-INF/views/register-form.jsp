@@ -42,7 +42,9 @@
 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="form-control" title="Must contain at
+                    <input type="password" id="password" name="password"
+<%--                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" --%>
+                           class="form-control" title="Must contain at
                 least one number and one uppercase and lowercase letter, and at least 8 or more characters" required
                            placeholder="Enter your password">
                 </div>
