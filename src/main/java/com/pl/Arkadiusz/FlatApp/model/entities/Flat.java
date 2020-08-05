@@ -14,15 +14,12 @@ public class Flat extends EntityBase {
 
     @Column(nullable = false)
     private int flatNumber;
-    @Column(nullable = false)
-    private Boolean active;
 
-    @OneToOne
-    @JoinColumn(name="user_id")
+
+    @OneToOne(mappedBy = "flat")
     private User user;
 
     public Flat(int flatNumber, boolean active) {
         this.flatNumber= flatNumber;
-        this.active = active;
     }
 }

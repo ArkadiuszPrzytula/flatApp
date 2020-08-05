@@ -1,9 +1,6 @@
 package com.pl.Arkadiusz.FlatApp.model.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,6 +10,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @MappedSuperclass
+@EqualsAndHashCode(of = "id")
+@ToString
+@Inheritance(strategy = InheritanceType.JOINED)
 public class EntityBase {
 
     @Id
@@ -26,6 +26,8 @@ public class EntityBase {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @Column(name = "active", nullable = false)
+    private boolean active;
     @PreUpdate
     protected void preUpdate() {
         this.updatedAt = LocalDateTime.now();
@@ -34,6 +36,7 @@ public class EntityBase {
     @PrePersist
     protected void prePersist() {
         this.createdAt = LocalDateTime.now();
+        this.active = true;
     }
 
 

@@ -6,11 +6,14 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
-@Getter @Setter @AllArgsConstructor @NoArgsConstructor
-@ToString (exclude = {"bills","flat",})
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString( callSuper = true, exclude = {"bills", "flat",})
 @Builder
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User extends EntityBase {
 
 
@@ -26,19 +29,28 @@ public class User extends EntityBase {
     private String email;
     @Column(nullable = false)
     private int flatNumber;
-//    @Column(nullable = false)
+    //    @Column(nullable = false)
     private String role;
-    @Column
-    Boolean active = false;
 
     @OneToMany(mappedBy = "user")
     private List<Bill> bills;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_flat",
+            joinColumns =
+                    {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns =
+                    {@JoinColumn(name = "flat_id", referencedColumnName = "id")})
     private Flat flat;
 
     @OneToMany(mappedBy = "user")
     private List<Advert> advert;
+
+    @PrePersist
+    protected void prePersist(){
+        super.prePersist();
+        this.role = "USER";
+    }
 
 //    @ManyToMany(cascade = {CascadeType.ALL})
 //    @JoinTable(

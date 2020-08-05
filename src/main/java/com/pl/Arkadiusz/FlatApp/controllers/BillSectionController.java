@@ -28,8 +28,7 @@ public class BillSectionController {
 
     @GetMapping
     public String getBillSectionPage(Model model) {
-        LoggedUserDto user = userService.getUser(getUsername());
-        basicBillsData(model, user);
+        basicBillsData(model, userService.getUser(getUsername()));
         return  "bill-page";
     }
 

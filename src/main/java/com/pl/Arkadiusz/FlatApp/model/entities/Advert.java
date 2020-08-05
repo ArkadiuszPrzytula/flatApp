@@ -7,25 +7,23 @@ import javax.persistence.*;
 
 
 @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @ToString(exclude = {"user"})
-    @Builder
-    @Entity
-    @Table(name = "adverts")
-    public class Advert extends EntityBase{
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+@Builder
+@Entity
+@Table(name = "adverts")
+public class Advert extends EntityBase {
+    @Column(nullable = false, unique = true)
+    private String title;
+    @Column(nullable = false)
+    private String description;
 
-        @Column(nullable = false)
-        private String title;
-        @Column(nullable = false)
-        private String description;
-        @Column(nullable = false)
-        private Boolean active;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-        @ManyToOne
-        @JoinColumn(name="user_id")
-        private User user;
-
-    }
+}
 

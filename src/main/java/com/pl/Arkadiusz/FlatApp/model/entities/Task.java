@@ -3,6 +3,7 @@ package com.pl.Arkadiusz.FlatApp.model.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -20,9 +21,10 @@ public class Task extends EntityBase{
 
     @Column(columnDefinition = "TEXT")
     private String description;
+    private Status status;
+    private LocalDate startDate;
+    private LocalDate deadline;
 
-    private Boolean active;
-    private String status;
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
@@ -30,5 +32,10 @@ public class Task extends EntityBase{
 
     @Column(name = "owner_id", insertable = false, updatable = false)
     private Long ownerId;
+
+    public static enum Status{
+        ACTIVE,
+        INACTIVE;
+    }
 
 }
