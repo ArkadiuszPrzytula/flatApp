@@ -74,16 +74,16 @@ public class AdvertPageController {
 
 
     }
-    @PostMapping("/delete-advert")
-    public String processDeleteAdvert(Long advertId, Principal principal) {
-        String username = principal.getName();
-        log.debug("Usuwanie ogłoszenia o id {} dla użytkownika {}", advertId, username);
-
-        Optional<Advert> optionalAdvert = advertRepository.findByIdAndUserUsername(advertId, username);
-        optionalAdvert.ifPresent(advertRepository::delete);
-
-        return "redirect:/adverts";
-    }
+//    @PostMapping("/delete-advert")
+//    public String processDeleteAdvert(Long advertId, Principal principal) {
+//        String username = principal.getName();
+//        log.debug("Usuwanie ogłoszenia o id {} dla użytkownika {}", advertId, username);
+//
+//        Optional<Advert> optionalAdvert = advertRepository.findByIdAndUserUsername(advertId, username);
+//        optionalAdvert.ifPresent(advertRepository::delete);
+//
+//        return "redirect:/adverts";
+//    }
 
 
 
